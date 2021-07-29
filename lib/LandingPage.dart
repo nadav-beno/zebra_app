@@ -55,26 +55,28 @@ class _LandingPageState extends State<LandingPage> {
             ),
           ),
         ),
-        body: Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Center(
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              crossAxisAlignment: CrossAxisAlignment.start,
-            children: <Widget>[
-              Text('My list:',
-                style: TextStyle(color: Color(0xff909699),
-                fontStyle: FontStyle.italic,
-                decoration: TextDecoration.underline
+        body: SingleChildScrollView(
+          child: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Center(
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                Text('My list:',
+                  style: TextStyle(color: Color(0xff909699),
+                  fontStyle: FontStyle.italic,
+                  decoration: TextDecoration.underline
+                  ),
                 ),
-              ),
-              patientCardTemplate(),
-              patientCardTemplate(),
-              // patientCardTemplate(),
-              // patientCardTemplate()
-            ],
+                patientCardTemplate(),
+                patientCardTemplate(),
+                patientCardTemplate(),
+                patientCardTemplate()
+              ],
+            ),
           ),
-        ),
+          ),
         )
     );
   }
