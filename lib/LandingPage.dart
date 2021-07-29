@@ -18,6 +18,7 @@ class _LandingPageState extends State<LandingPage> {
                   ListTile(
                     leading: Icon(Icons.settings),
                     title: Text('Settings'),
+
                     onTap: (){
                       //Navigator.pushNamed(context, '/home');
                     },
