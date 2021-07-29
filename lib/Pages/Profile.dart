@@ -27,7 +27,7 @@ class _ProfileState extends State<Profile> {
                             style: TextStyle(color: Color(0xff909699))
                         ),
                         onTap: (){
-                          //Navigator.pushNamed(context, '/transactionsList');
+                          //Navigator.pushNamed(context, '/profile');
                         },
                       ),
                     ),
@@ -39,7 +39,7 @@ class _ProfileState extends State<Profile> {
                           style: TextStyle(color: Color(0xff909699))
                       ),
                       onTap: (){
-                        //Navigator.pushNamed(context, '/transactionsList');
+                        Navigator.pushNamed(context, '/messages');
                       },
                     ),
                     ListTile(
@@ -50,7 +50,7 @@ class _ProfileState extends State<Profile> {
                           style: TextStyle(color: Color(0xff909699))
                       ),
                       onTap: (){
-                        //Navigator.pushNamed(context, '/transactionsList');
+                        Navigator.pushNamed(context, '/library');
                       },
                     ),
                     ListTile(
@@ -61,7 +61,7 @@ class _ProfileState extends State<Profile> {
                           style: TextStyle(color: Color(0xff909699))
                       ),
                       onTap: (){
-                        //Navigator.pushNamed(context, '/home');
+                        Navigator.pushNamed(context, '/setting');
                       },
                     ),
                     ListTile(
@@ -93,7 +93,9 @@ class _ProfileState extends State<Profile> {
                   child: IconButton(
                     icon: Image.asset('assets/yellowLogo.png'),
                     iconSize: 60,
-                    onPressed: (){},
+                    onPressed: (){
+                      Navigator.pushNamed(context, '/home');
+                    },
                   ),
                 ),
 
