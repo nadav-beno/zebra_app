@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:zebra_app/Components/patientCard.dart';
+import 'Components/patientCard.dart';
 
 class LandingPage extends StatefulWidget {
   const LandingPage({Key? key}) : super(key: key);
@@ -16,15 +16,16 @@ class _LandingPageState extends State<LandingPage> {
             child: ListView(
                 children: <Widget>[
                   ListTile(
-                    leading: Icon(Icons.shopping_cart),
-                    title: Text('Checkout'),
+                    leading: Icon(Icons.settings),
+                    title: Text('Settings'),
+
                     onTap: (){
                       //Navigator.pushNamed(context, '/home');
                     },
                   ),
                   ListTile(
-                    leading: Icon(Icons.report),
-                    title: Text('Transactions'),
+                    leading: Icon(Icons.email_outlined),
+                    title: Text('massages'),
                     onTap: (){
                       //Navigator.pushNamed(context, '/transactionsList');
                     },
