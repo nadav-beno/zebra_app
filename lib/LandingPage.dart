@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:zebra_app/Components/patientCard.dart';
+import 'Components/patientCard.dart';
 
 class LandingPage extends StatefulWidget {
   const LandingPage({Key? key}) : super(key: key);
@@ -16,15 +16,15 @@ class _LandingPageState extends State<LandingPage> {
             child: ListView(
                 children: <Widget>[
                   ListTile(
-                    leading: Icon(Icons.shopping_cart),
-                    title: Text('Checkout'),
+                    leading: Icon(Icons.settings),
+                    title: Text('Settings'),
                     onTap: (){
                       //Navigator.pushNamed(context, '/home');
                     },
                   ),
                   ListTile(
-                    leading: Icon(Icons.report),
-                    title: Text('Transactions'),
+                    leading: Icon(Icons.email_outlined),
+                    title: Text('massages'),
                     onTap: (){
                       //Navigator.pushNamed(context, '/transactionsList');
                     },
@@ -55,26 +55,28 @@ class _LandingPageState extends State<LandingPage> {
             ),
           ),
         ),
-        body: Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Center(
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              crossAxisAlignment: CrossAxisAlignment.start,
-            children: <Widget>[
-              Text('My list:',
-                style: TextStyle(color: Color(0xff909699),
-                fontStyle: FontStyle.italic,
-                decoration: TextDecoration.underline
+        body: SingleChildScrollView(
+          child: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Center(
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                Text('My list:',
+                  style: TextStyle(color: Color(0xff909699),
+                  fontStyle: FontStyle.italic,
+                  decoration: TextDecoration.underline
+                  ),
                 ),
-              ),
-              patientCardTemplate(),
-              patientCardTemplate(),
-              // patientCardTemplate(),
-              // patientCardTemplate()
-            ],
+                patientCardTemplate(),
+                patientCardTemplate(),
+                // patientCardTemplate(),
+                // patientCardTemplate()
+              ],
+            ),
           ),
-        ),
+          ),
         )
     );
   }
