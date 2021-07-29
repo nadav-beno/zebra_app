@@ -9,6 +9,7 @@ import 'package:zebra_app/pages/Setting.dart';
 void main() => runApp(MaterialApp(
   initialRoute: '/home',
   routes: {
+    //'/': (context) => Loading(),
     '/home': (context) => LandingPage(),
     '/messages': (context) => Messages(),
     '/library': (context) => MyLibrary(),
