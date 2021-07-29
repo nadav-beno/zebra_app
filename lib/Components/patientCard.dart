@@ -57,6 +57,11 @@ Widget patientCardTemplate() {
                   ),
                   fit: BoxFit.fitWidth,
                 ),
+                SizedBox(height: 8.0),
+                // IconButton(
+                //     onPressed: (){},
+                //     icon: Icon(Icons.delete),
+                // ),
               ],
             ),
           ),

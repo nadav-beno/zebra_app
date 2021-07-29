@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
-import 'LandingPage.dart';
+import 'package:zebra_app/landingPage.dart';
+import 'package:zebra_app/Services/Loading.dart';
 
 void main() => runApp(MaterialApp(
-  home: LandingPage(),
+
+  routes: {
+    '/': (context) => Loading(),
+  },
 ));
 
