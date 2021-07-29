@@ -72,8 +72,8 @@ class _LandingPageState extends State<LandingPage> {
                 ),
                 patientCardTemplate(),
                 patientCardTemplate(),
-                // patientCardTemplate(),
-                // patientCardTemplate()
+                patientCardTemplate(),
+                patientCardTemplate()
               ],
             ),
           ),
