@@ -9,7 +9,6 @@ class LandingPage extends StatefulWidget {
 }
 
 class _LandingPageState extends State<LandingPage> {
-
   //Map data = {};
 
   @override
@@ -19,75 +18,58 @@ class _LandingPageState extends State<LandingPage> {
 
   @override
   Widget build(BuildContext context) {
-
     final data = ModalRoute.of(context)!.settings.arguments as Map;
 
     return Scaffold(
         endDrawer: Drawer(
             child: Container(
-              color: Color(0xff14272f),
-              child: ListView(
-                  children: <Widget>[
-                    ListTile(
-                      leading: Icon(Icons.person,
-                          color: Color(0xffffd000)
-
-                      ),
-                      title: Text('My profile',
-                          style: TextStyle(color: Color(0xff909699))
-                      ),
-                      onTap: (){
-                        Navigator.pushNamed(context, '/profile');
-                      },
-                    ),
-                    ListTile(
-                      leading: Icon(Icons.email_outlined,
-                          color: Color(0xffffd000)
-                      ),
-                      title: Text('Massages',
-                          style: TextStyle(color: Color(0xff909699))
-                      ),
-                      onTap: (){
-                        Navigator.pushNamed(context, '/messages');
-                      },
-                    ),
-                    ListTile(
-                      leading: Icon(Icons.history,
-                          color: Color(0xffffd000)
-                      ),
-                      title: Text('My library',
-                          style: TextStyle(color: Color(0xff909699))
-                      ),
-                      onTap: (){
-                        Navigator.pushNamed(context, '/library');
-                      },
-                    ),
-                    ListTile(
-                      leading: Icon(Icons.settings,
-                          color: Color(0xffffd000)
-                      ),
-                      title: Text('Settings',
-                        style: TextStyle(color: Color(0xff909699))
-                      ),
-                      onTap: (){
-                        Navigator.pushNamed(context, '/setting');
-                      },
-                    ),
-                    ListTile(
-                      leading: Icon(Icons.logout,
-                      color: Color(0xffffd000),
-                      ),
-                      title: Text('Log-out',
-                          style: TextStyle(color: Color(0xff909699))
-                      ),
-                      onTap: (){
-                        //Navigator.pushNamed(context, '/transactionsList');
-                      },
-                    ),
-                  ]
+          color: Color(0xff14272f),
+          child: ListView(children: <Widget>[
+            ListTile(
+              leading: Icon(Icons.person, color: Color(0xffffd000)),
+              title: Text('My profile',
+                  style: TextStyle(color: Color(0xff909699))),
+              onTap: () {
+                Navigator.pushNamed(context, '/profile');
+              },
+            ),
+            ListTile(
+              leading: Icon(Icons.email_outlined, color: Color(0xffffd000)),
+              title:
+                  Text('Massages', style: TextStyle(color: Color(0xff909699))),
+              onTap: () {
+                Navigator.pushNamed(context, '/messages');
+              },
+            ),
+            ListTile(
+              leading: Icon(Icons.history, color: Color(0xffffd000)),
+              title: Text('My library',
+                  style: TextStyle(color: Color(0xff909699))),
+              onTap: () {
+                Navigator.pushNamed(context, '/library');
+              },
+            ),
+            ListTile(
+              leading: Icon(Icons.settings, color: Color(0xffffd000)),
+              title:
+                  Text('Settings', style: TextStyle(color: Color(0xff909699))),
+              onTap: () {
+                Navigator.pushNamed(context, '/setting');
+              },
+            ),
+            ListTile(
+              leading: Icon(
+                Icons.logout,
+                color: Color(0xffffd000),
               ),
-            )
-        ),
+              title:
+                  Text('Log-out', style: TextStyle(color: Color(0xff909699))),
+              onTap: () {
+                //Navigator.pushNamed(context, '/transactionsList');
+              },
+            ),
+          ]),
+        )),
         backgroundColor: Color(0xff12262b),
         appBar: AppBar(
           iconTheme: IconThemeData(color: Colors.white),
@@ -96,17 +78,15 @@ class _LandingPageState extends State<LandingPage> {
             padding: const EdgeInsets.all(8.0),
             child: Row(
               mainAxisSize: MainAxisSize.min,
-              crossAxisAlignment: CrossAxisAlignment.start ,
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
                 Container(
                   child: IconButton(
-                      icon: Image.asset('assets/yellowLogo.png'),
-                      iconSize: 60,
-                      onPressed: (){},
+                    icon: Image.asset('assets/yellowLogo.png'),
+                    iconSize: 60,
+                    onPressed: () {},
                   ),
                 ),
-
-
               ],
             ),
           ),
@@ -118,22 +98,24 @@ class _LandingPageState extends State<LandingPage> {
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 crossAxisAlignment: CrossAxisAlignment.start,
-              children: <Widget>[
-                Text('My list:',
-                  style: TextStyle(color: Color(0xff909699),
-                  fontStyle: FontStyle.italic,
-                  decoration: TextDecoration.underline
+                children: <Widget>[
+                  Text(
+                    'My list:',
+                    style: TextStyle(
+                        color: Color(0xff909699),
+                        fontStyle: FontStyle.italic,
+                        decoration: TextDecoration.underline),
                   ),
-                ),
-                patientCardTemplate(data['Patient name'], data['Gender'], data['DOB'], data['Acc']),
-                patientCardTemplate(data['Patient name'], data['Gender'], data['DOB'], data['Acc']),
-                //patientCardTemplate(),
-                //patientCardTemplate()
-              ],
+                  patientCardTemplate(data['Patient name'], data['Gender'],
+                      data['DOB'], data['Acc']),
+                  patientCardTemplate(data['Patient name'], data['Gender'],
+                      data['DOB'], data['Acc']),
+                  //patientCardTemplate(),
+                  //patientCardTemplate()
+                ],
+              ),
             ),
           ),
-          ),
-        )
-    );
+        ));
   }
 }
