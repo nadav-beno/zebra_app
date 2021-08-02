@@ -78,7 +78,7 @@ class _SettingState extends State<Setting> {
                     icon: Image.asset('assets/yellowLogo.png'),
                     iconSize: 60,
                     onPressed: () {
-                      Navigator.pushNamed(context, '/home');
+                      Navigator.pushNamed(context, '/');
                     },
                   ),
                 ),

@@ -78,7 +78,7 @@ class _MyLibraryState extends State<MyLibrary> {
                     icon: Image.asset('assets/yellowLogo.png'),
                     iconSize: 60,
                     onPressed: () {
-                      Navigator.pushNamed(context, '/home');
+                      Navigator.pushNamed(context, '/');
                     },
                   ),
                 ),
