@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../Components/patientCard.dart';
+import 'package:zebra_app/Components/patientCard.dart';
 
 class LandingPage extends StatefulWidget {
   const LandingPage({Key? key}) : super(key: key);
