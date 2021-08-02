@@ -1,5 +1,7 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
+import 'package:zebra_app/Components/Services/contact.dart';
+import 'package:zebra_app/Components/Services/tagGroup.dart';
 class Messages extends StatefulWidget {
   const Messages({Key? key}) : super(key: key);
 
@@ -105,8 +107,65 @@ class _MessagesState extends State<Messages> {
           ),
         ),
         body: SingleChildScrollView(
-          child: Text('Messages'),
-        )
-    );
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              Padding(
+                padding: const EdgeInsets.all(10),
+                child: Card(
+                  color: Color(0xff112d3b),
+                  elevation: 10,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: <Widget>[
+                      Text('  Groups:',
+                        style: TextStyle(color: Colors.amber),
+                      ),
+                      IconButton(
+                        onPressed: (){},
+                        icon: const Icon(Icons.add, color: Colors.amber),
+                      )
+                    ],
+                  ),
+                ),
+              ),
+              Text('    # ${tagGroups(groupName: 'brain', contacts: []).groupName}',
+                style: TextStyle(color: Color(0xff909699)),
+              ),
+              Text('    # ${tagGroups(groupName: 'Lungs', contacts: []).groupName}',
+                style: TextStyle(color: Color(0xff909699)),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(10),
+                child: Card(
+                  color: Color(0xff112d3b),
+                  elevation: 10,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: <Widget>[
+                      Text('  Contacts :',
+                        style: TextStyle(color: Colors.amber),
+                      ),
+                      IconButton(
+                        onPressed: (){},
+                        icon: const Icon(Icons.add, color: Colors.amber),
+                      )
+                    ],
+                  ),
+                ),
+              ),
+              Text('- ${contact(name: 'Eyal Zawlik').name}',
+                style: TextStyle(color: Color(0xff909699)),
+              ),
+              Text('- ${contact(name: 'Nadav Benoudiz').name}',
+                  style: TextStyle(color: Color(0xff909699)),
+              ),
+              Text('- ${contact(name: 'Nadav Morag').name}',
+                style: TextStyle(color: Color(0xff909699)),
+              ),
+            ],
+          ),
+            ),
+          );
   }
 }
