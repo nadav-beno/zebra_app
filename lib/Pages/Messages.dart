@@ -1,7 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:zebra_app/Components/Services/contact.dart';
-import 'package:zebra_app/Components/Services/tagGroup.dart';
+import 'package:zebra_app/Services/contact.dart';
+import 'package:zebra_app/Services//tagGroup.dart';
+
 class Messages extends StatefulWidget {
   const Messages({Key? key}) : super(key: key);
 
@@ -100,8 +101,6 @@ class _MessagesState extends State<Messages> {
                     },
                   ),
                 ),
-
-
               ],
             ),
           ),

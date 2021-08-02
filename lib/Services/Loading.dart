@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:zebra_app/Services/getData.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
+
 
 class Loading extends StatefulWidget {
   const Loading({Key? key}) : super(key: key);
@@ -10,9 +12,20 @@ class Loading extends StatefulWidget {
 }
 class _LoadingState extends State<Loading> {
 
-  void setDicomData(){
-    caseData instance = caseData(patientName: 'Nadav Benoudiz', DoctorName: 'Zebra Doctor', Dob: '01/01/1996', url: 'http/dicom');
-    instance.getDicomData();
+  //String doctorName = 'Loading...';
+
+  Future<void> setDicomData() async {
+    caseData instance = caseData(patientName: 'x', doctorName: 'x', dateOfBirth: 'x', url: 'http/dicom', gender: 'x', Acc: 'x');
+    await instance.getDicomData();
+    //print(instance.doctorName);
+
+    Navigator.pushReplacementNamed(context, '/home', arguments: {
+      'Doctor name': instance.doctorName,
+      'Patient name': instance.patientName,
+      'DOB': instance.dateOfBirth,
+      'Gender': instance.gender,
+      'Acc': instance.Acc
+    });
   }
 
   @override
@@ -23,7 +36,16 @@ class _LoadingState extends State<Loading> {
 
   @override
   Widget build(BuildContext context) {
-    return Container();
+
+    return Scaffold(
+        backgroundColor: Color(0xff14272f),
+        body: Center(
+            child: SpinKitFadingCube(
+              color: Colors.white,
+              size: 50.0,
+            )
+        )
+    );
   }
 }
 

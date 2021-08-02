@@ -1,4 +1,5 @@
-import 'contact.dart';
+import 'package:zebra_app/Services/contact.dart';
+
 class tagGroups{
   String groupName;
   List<contact> contacts;

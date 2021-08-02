@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-Widget patientCardTemplate() {
+Widget patientCardTemplate(String doctorName, String gender, String dob, String Acc) {
   return Center(
     child: Padding(
       padding: const EdgeInsets.all(10.0),
@@ -23,11 +23,11 @@ Widget patientCardTemplate() {
                   child: Row(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: <Widget>[
-                      Text('Name: Doctor Zebra',
+                      Text('Name: $doctorName',
                         style: TextStyle(color: Color(0xff909699), fontStyle: FontStyle.italic),
                       ),
                       SizedBox(width: 10),
-                      Text('Gender: Mamel',
+                      Text('Gender: $gender',
                           style: TextStyle(color: Color(0xff909699), fontStyle: FontStyle.italic)
                       ),
                       SizedBox(width: 10),
@@ -39,11 +39,11 @@ Widget patientCardTemplate() {
                   child: Row(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: <Widget>[
-                      Text('DOB: 01.01.2014',
+                      Text('DOB: $dob',
                           style: TextStyle(color: Color(0xff909699), fontStyle: FontStyle.italic)
                       ),
                       SizedBox(width: 10),
-                      Text('Acc#: ZEBRA',
+                      Text('Acc#: $Acc',
                           style: TextStyle(color: Color(0xff909699), fontStyle: FontStyle.italic)
                       ),
                       SizedBox(width: 10),
