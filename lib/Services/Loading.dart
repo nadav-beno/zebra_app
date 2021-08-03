@@ -23,7 +23,7 @@ class _LoadingState extends State<Loading> {
     await instance.getDicomData();
     //print(instance.doctorName);
 
-    Navigator.pushReplacementNamed(context, '/home', arguments: {
+    Navigator.pushReplacementNamed(context, '/webview', arguments: {
       'Doctor name': instance.doctorName,
       'Patient name': instance.patientName,
       'DOB': instance.dateOfBirth,

@@ -5,6 +5,7 @@ import 'package:zebra_app/Pages/Messages.dart';
 import 'package:zebra_app/Pages/MyLibrary.dart';
 import 'package:zebra_app/pages/Setting.dart';
 import 'package:zebra_app/Services/Loading.dart';
+import 'package:zebra_app/Components/WebViewer.dart';
 
 void main() => runApp(MaterialApp(
       initialRoute: '/',
@@ -15,5 +16,6 @@ void main() => runApp(MaterialApp(
         '/library': (context) => MyLibrary(),
         '/setting': (context) => Setting(),
         '/profile': (context) => Profile(),
+        '/webview': (context) => WebViewer(),
       },
     ));
