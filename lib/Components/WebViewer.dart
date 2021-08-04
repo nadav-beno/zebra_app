@@ -24,7 +24,7 @@ class _WebViewerState extends State<WebViewer> {
   @override
   Widget build(BuildContext context) {
     return WebView(
-      initialUrl: 'https://upload.wikimedia.org/wikipedia/commons/f/f6/004_American_Pit_Bull_Terrier.jpg',
+      initialUrl: 'https://www.ynet.co.il/home/0,7340,L-8,00.html',
       // onWebViewCreated: (WebViewController webViewController) {
       //   _controller.complete(webViewController);
       // },
