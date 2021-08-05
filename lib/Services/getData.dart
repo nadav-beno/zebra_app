@@ -1,23 +1,32 @@
-class caseData {
+import 'dart:async' show Future;
+import 'package:flutter/services.dart' show rootBundle;
+import 'dart:convert';
+import 'package:flutter/services.dart';
+import 'package:zebra_app/Pages/Setting.dart';
+
+class GetData {
   String patientName;
   String doctorName;
   String dateOfBirth;
   String gender;
   String Acc;
   String url;
+  Map data;
 
-  caseData(
-      {this.patientName = '',
-      this.doctorName = '',
-      this.dateOfBirth = '',
-      this.url = '',
-      this.gender = '',
-      this.Acc = ''});
+  GetData({
+    this.patientName = '',
+    this.doctorName = '',
+    this.dateOfBirth = '',
+    this.url = '',
+    this.gender = '',
+    this.Acc = '',
+    required this.data,
+  });
 
   Future<void> getDicomData() async {
     try {
       //Simulates network request for patient information
-      List<String> userName = await Future.delayed(Duration(seconds: 3), () {
+      List<String> userName = await Future.delayed(Duration(seconds: 1), () {
         List<String> data = [
           'Nadav Benoudiz',
           'Doctor Zebra',
@@ -28,6 +37,11 @@ class caseData {
         ];
         return data;
       });
+
+      var jsonText = await rootBundle.loadString('assets/studies_data.json');
+      // var jsonText = await rootBundle.loadString('assets/studies_data.json');
+      data = json.decode(jsonText);
+      print(data);
 
       patientName = userName.first;
       doctorName = userName.elementAt(1);

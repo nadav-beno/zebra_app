@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:zebra_app/Services/getData.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'dart:async' show Future;
+import 'package:flutter/services.dart' show rootBundle;
+import 'dart:convert';
+import 'package:flutter/services.dart';
 
 class Loading extends StatefulWidget {
   const Loading({Key? key}) : super(key: key);
@@ -13,13 +17,14 @@ class _LoadingState extends State<Loading> {
   //String doctorName = 'Loading...';
 
   Future<void> setDicomData() async {
-    caseData instance = caseData(
+    GetData instance = GetData(
         patientName: 'x',
         doctorName: 'x',
         dateOfBirth: 'x',
         url: 'http/dicom',
         gender: 'x',
-        Acc: 'x');
+        Acc: 'x',
+        data: {});
     await instance.getDicomData();
     //print(instance.doctorName);
 
@@ -32,10 +37,23 @@ class _LoadingState extends State<Loading> {
     });
   }
 
+  // List data = [];
+  //
+  // Future<String> loadJsonData() async {
+  //   var jsonText = await rootBundle.loadString('assets/studies_data.json');
+  //   setState(() {
+  //     Map<String, dynamic> map = json.decode(jsonText);
+  //     List<dynamic> data = map["dataKey"];
+  //     print(data[0]["name"]);
+  //   });
+  //   //print(data);
+  //   return 'success';
+  // }
+
   @override
   void initState() {
     super.initState();
-    setDicomData();
+    this.setDicomData();
   }
 
   @override
