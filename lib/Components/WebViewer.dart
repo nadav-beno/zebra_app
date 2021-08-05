@@ -1,7 +1,10 @@
-import 'package:flutter/material.dart';
-import 'package:webview_flutter/webview_flutter.dart';
+import 'dart:convert';
 import 'dart:io';
-import 'dart:async';
+import 'package:flutter/material.dart';
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/services.dart';
+import 'package:webview_flutter/webview_flutter.dart';
+
 
 class WebViewer extends StatefulWidget {
   const WebViewer({Key? key}) : super(key: key);
@@ -12,8 +15,7 @@ class WebViewer extends StatefulWidget {
 
 class _WebViewerState extends State<WebViewer> {
 
-  final Completer<WebViewController> _controller =
-  Completer<WebViewController>();
+  late WebViewController _controller;
 
   @override
   void initState() {
@@ -23,11 +25,24 @@ class _WebViewerState extends State<WebViewer> {
 
   @override
   Widget build(BuildContext context) {
-    return WebView(
-      initialUrl: 'https://upload.wikimedia.org/wikipedia/commons/f/f6/004_American_Pit_Bull_Terrier.jpg',
-      // onWebViewCreated: (WebViewController webViewController) {
-      //   _controller.complete(webViewController);
-      // },
+    return Scaffold(
+      body: WebView(
+        initialUrl: 'about:blank',
+        //javascriptMode: JavascriptMode.unrestricted,
+        onWebViewCreated: (WebViewController webViewController) {
+          _controller = webViewController;
+          _loadHtmlFromAssets();
+        },
+
+      ),
     );
+  }
+  _loadHtmlFromAssets() async {
+    String fileText = await rootBundle.loadString('assets/index.html');
+    _controller.loadUrl( Uri.dataFromString(
+        fileText,
+        mimeType: 'text/html',
+        encoding: Encoding.getByName('utf-8')
+    ).toString());
   }
 }
