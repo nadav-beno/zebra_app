@@ -28,7 +28,7 @@ class _WebViewerState extends State<WebViewer> {
     return Scaffold(
       body: WebView(
         initialUrl: 'about:blank',
-        //javascriptMode: JavascriptMode.unrestricted,
+        javascriptMode: JavascriptMode.unrestricted,
         onWebViewCreated: (WebViewController webViewController) {
           _controller = webViewController;
           _loadHtmlFromAssets();
