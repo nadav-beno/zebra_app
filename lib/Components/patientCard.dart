@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'WebViewer.dart';
+
 Widget patientCardTemplate(
     String doctorName, String gender, String dob, String Acc) {
   return Center(
@@ -14,6 +16,7 @@ Widget patientCardTemplate(
         child: InkWell(
           onTap: () {
             print('Hello');
+            WebViewer();
           },
           child: SingleChildScrollView(
             child: Column(

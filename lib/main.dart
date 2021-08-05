@@ -7,6 +7,8 @@ import 'package:zebra_app/pages/Setting.dart';
 import 'package:zebra_app/Services/Loading.dart';
 import 'package:zebra_app/Components/WebViewer.dart';
 
+import 'Components/WebViewer.dart';
+
 void main() => runApp(MaterialApp(
       initialRoute: '/',
       routes: {

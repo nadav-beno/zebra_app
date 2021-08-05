@@ -5,10 +5,12 @@
 </head>
 
 <body>
-<h1 id="title">Hello World!</h1>
+<h1 id="title1">Hello</h1>
+<h2 id="title2">World!</h2>
 <script type="text/javascript">
-            function fromFlutter(newTitle) {
-                document.getElementById("title").innerHTML = newTitle;
+            function fromFlutter(newTitle, name) {
+                document.getElementById("title1").innerHTML = newTitle;
+                document.getElementById("title2").innerHTML = name;
                 sendBack();
              }
 
