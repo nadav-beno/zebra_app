@@ -104,9 +104,9 @@ class _LandingPageState extends State<LandingPage> {
                         fontStyle: FontStyle.italic,
                         decoration: TextDecoration.underline),
                   ),
-                  patientCardTemplate(data['Patient name'], data['Gender'],
+                  patientCardTemplate(context, data['Patient name'], data['Gender'],
                       data['DOB'], data['Acc']),
-                  patientCardTemplate(data['Patient name'], data['Gender'],
+                  patientCardTemplate(context, data['Patient name'], data['Gender'],
                       data['DOB'], data['Acc']),
                   //patientCardTemplate(),
                   //patientCardTemplate()

@@ -55,6 +55,10 @@ flutter:
     - assets/brain.jpg
     - assets/index.html
     - assets/studies_data.json
+    - assets/main.js
+    - assets/polyfills.js
+    - assets/runtime.js
+    - assets/vendor.js
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

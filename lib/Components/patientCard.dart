@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:zebra_app/Components/WebViewer.dart';
+import 'package:zebra_app/Services/Loading.dart';
 
-import 'WebViewer.dart';
 
 Widget patientCardTemplate(
-    String doctorName, String gender, String dob, String Acc) {
+    BuildContext context, String doctorName, String gender, String dob, String acc) {
   return Center(
     child: Padding(
       padding: const EdgeInsets.all(10.0),
@@ -15,8 +16,7 @@ Widget patientCardTemplate(
             RoundedRectangleBorder(borderRadius: BorderRadius.circular(12.0)),
         child: InkWell(
           onTap: () {
-            print('Hello');
-            WebViewer();
+            Navigator.pushNamed(context, '/webview');
           },
           child: SingleChildScrollView(
             child: Column(
@@ -55,7 +55,7 @@ Widget patientCardTemplate(
                               color: Color(0xff909699),
                               fontStyle: FontStyle.italic)),
                       SizedBox(width: 10),
-                      Text('Acc#: $Acc',
+                      Text('Acc#: $acc',
                           style: TextStyle(
                               color: Color(0xff909699),
                               fontStyle: FontStyle.italic)),
