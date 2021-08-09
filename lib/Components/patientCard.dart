@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:zebra_app/Components/WebViewer.dart';
-import 'package:zebra_app/Services/Loading.dart';
 
-
-Widget patientCardTemplate(
-    BuildContext context, String doctorName, String gender, String dob, String acc) {
+Widget patientCardTemplate(BuildContext context,
+    String doctorName, String gender, String dob, String Acc) {
   return Center(
     child: Padding(
       padding: const EdgeInsets.all(10.0),
@@ -55,7 +52,7 @@ Widget patientCardTemplate(
                               color: Color(0xff909699),
                               fontStyle: FontStyle.italic)),
                       SizedBox(width: 10),
-                      Text('Acc#: $acc',
+                      Text('Acc#: $Acc',
                           style: TextStyle(
                               color: Color(0xff909699),
                               fontStyle: FontStyle.italic)),

@@ -4,6 +4,16 @@ import 'dart:convert';
 import 'package:flutter/services.dart';
 import 'package:zebra_app/Pages/Setting.dart';
 
+
+class CardList{
+  final List<GetData> list;
+
+  CardList(this.list){}
+
+  //ardList({this.list})
+
+}
+
 class GetData {
   String patientName;
   String doctorName;
@@ -39,7 +49,6 @@ class GetData {
       });
 
       var jsonText = await rootBundle.loadString('assets/studies_data.json');
-      // var jsonText = await rootBundle.loadString('assets/studies_data.json');
       data = json.decode(jsonText);
       print(data);
 
