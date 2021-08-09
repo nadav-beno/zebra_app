@@ -11,12 +11,8 @@
             function fromFlutter(newTitle, name) {
                 document.getElementById("title1").innerHTML = newTitle;
                 document.getElementById("title2").innerHTML = name;
-                sendBack();
              }
 
-             function sendBack() {
-                messageHandler.postMessage("Hello from JS");
-             }
         </script>
 </body>
 </html>

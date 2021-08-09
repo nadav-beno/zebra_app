@@ -1,9 +1,20 @@
+//@JS()
+//library main;
+
+
+//import 'package:js/js.dart';
 import 'dart:convert';
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/services.dart';
 import 'package:webview_flutter/webview_flutter.dart';
+
+
+//@JS('jsFunction')
+//external void fromFlutter(String newTitle, String name);
+
+
 
 
 class WebViewer extends StatefulWidget {
@@ -19,9 +30,12 @@ class _WebViewerState extends State<WebViewer> {
 
   @override
   void initState() {
+
     super.initState();
     if (Platform.isAndroid) WebView.platform = SurfaceAndroidWebView();
   }
+
+
 
   @override
   Widget build(BuildContext context) {
@@ -32,9 +46,15 @@ class _WebViewerState extends State<WebViewer> {
         onWebViewCreated: (WebViewController webViewController) {
           _controller = webViewController;
           _loadHtmlFromAssets();
+          _controller.evaluateJavascript('function f1(){alert("hello zebra")}');
+          _controller.evaluateJavascript('f1();');
+
+          //callJsFunction();
+
         },
 
       ),
+
     );
   }
   _loadHtmlFromAssets() async {
@@ -45,4 +65,8 @@ class _WebViewerState extends State<WebViewer> {
         encoding: Encoding.getByName('utf-8')
     ).toString());
   }
+  //void callJsFunction() {
+    //fromFlutter('hey', 'Eyal');
+  //}
+
 }
