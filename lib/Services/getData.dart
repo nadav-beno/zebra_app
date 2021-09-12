@@ -2,7 +2,10 @@ import 'dart:async' show Future;
 import 'package:flutter/services.dart' show rootBundle;
 import 'dart:convert';
 import 'package:flutter/services.dart';
-import 'package:zebra_app/Pages/Setting.dart';
+//import 'package:zebra_app/Pages/LandingPage.dart';
+import 'package:flutter/material.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:zebra_app/Services/Loading.dart';
 
 
 class CardList{
@@ -66,3 +69,37 @@ class GetData {
     }
   }
 }
+
+//Firebase test
+
+Future<void> getDataWithFireBase() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  //await Firebase.initializeApp();
+}
+
+class FireTest extends StatelessWidget {
+  //const FireTest ({Key? key}) : super(key: key);
+
+  final Future<FirebaseApp> _app = Firebase.initializeApp();
+
+  @override
+  Widget build(BuildContext context) {
+    return FutureBuilder(
+      future: _app,
+      builder: (context, snapshot){
+        if (snapshot.hasError){
+          print ('You have an error! ${snapshot.error.toString()}');
+          return Text('Somthing went worng');
+        } else if (snapshot.hasData){
+          print('Success');
+          return Loading();
+        } else {
+          return Center(
+            child: CircularProgressIndicator(),
+          );
+        }
+      }
+    );
+  }
+}
+

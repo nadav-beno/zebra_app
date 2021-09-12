@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "686504906918",
+    "project_id": "zebramedical-36ef5",
+    "storage_bucket": "zebramedical-36ef5.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:686504906918:android:69a0dd3a2683a30cf1e467",
+        "android_client_info": {
+          "package_name": "com.example.zebra_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "686504906918-v7lu871iiol9l8q9397bpqhroklafco8.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.zebra_app",
+            "certificate_hash": "a5e975e78aea50269b8e3eea79942c2e7ea6d967"
+          }
+        },
+        {
+          "client_id": "686504906918-6dpkesmrd0ttbakmkihq0ssjl8v7vr93.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBZMJ1X-AV5dZWOnIVqI6vDPcQS6rZKOBk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "686504906918-6dpkesmrd0ttbakmkihq0ssjl8v7vr93.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

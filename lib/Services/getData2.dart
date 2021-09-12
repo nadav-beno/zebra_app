@@ -1,25 +1,31 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'dart:async' show Future;
-import 'package:flutter/services.dart' show rootBundle;
-import 'dart:convert';
-import 'package:flutter/services.dart';
-import 'package:zebra_app/Pages/Setting.dart';
 
-class GetData2{
-  final String id;
-  final String title;
-  final String url;
+//final Future<FirebaseApp> _app = Firebase.initializeApp();
 
-  GetData2({
-    this.id = '',
-    this.url = '',
-    this.title = ''
-  }) ;
-
-  factory GetData2.fromJson(Map<String, dynamic> json){
-    return new GetData2(
-      id: json['id'].toString(),
-      title: json['title'],
-      url: json['json'],
-    );
-  }
-}
+// Future<void> getDataWithFireBase() async {
+//  WidgetsFlutterBinding.ensureInitialized();
+//  //await Firebase.initializeApp();
+// }
+//
+// class FireTest extends StatelessWidget {
+//  const FireTest ({Key? key}) : super(key: key);
+//
+//  @override
+//  Widget build(BuildContext context) {
+//   return FutureBuilder(
+//       future: _app,
+//       builder: (context, snapshot){
+//        if (snapshot.hasError){
+//         print ('You have an error! ${snapshot.error.toString()}');
+//         return Text('Somthing went worng');
+//        } else if (snapshot.hasData){
+//         return Loading();
+//        } else {
+//         return Center(
+//          child: CircularProgressIndicator(),
+//         );
+//        }
+//       }
+//   );
+//  }
