@@ -3,6 +3,8 @@ import 'dart:math';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'package:zebra_app/Components/patientCard.dart';
+import 'package:zebra_app/Services/JsonStream.dart';
+import 'package:zebra_app/Services/Order.dart';
 
 class LandingPage extends StatefulWidget {
   const LandingPage({Key? key}) : super(key: key);
@@ -22,6 +24,7 @@ class _LandingPageState extends State<LandingPage> {
     final data = ModalRoute.of(context)!.settings.arguments as Map;
     DatabaseReference _testRef = FirebaseDatabase.instance.reference().child("test");
     _testRef.set("Working!!!! ${Random().nextInt(100)}");
+    final _database = FirebaseDatabase.instance.reference();
 
     return Scaffold(
         endDrawer: Drawer(
@@ -115,6 +118,24 @@ class _LandingPageState extends State<LandingPage> {
                       data['DOB'], data['Acc']),
                   //patientCardTemplate(),
                   //patientCardTemplate()
+                  StreamBuilder(
+                      stream: JsonStream.getOrderStream(),
+                      builder: (context, snapshot){
+                        final tilesList = <ListTile>[];
+                        if (snapshot.hasData){
+                          final myOrders = snapshot.data as List<Order>;
+                          tilesList.addAll(
+                            myOrders.map((nextOrder){
+                              return ListTile(
+                                title: Text(nextOrder.name),
+                              );
+                            })
+                          );
+                        }
+                        return ListTile(
+                          title: Text("as"),
+                        );
+                      } )
                 ],
               ),
             ),
