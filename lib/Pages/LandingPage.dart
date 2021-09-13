@@ -1,3 +1,6 @@
+import 'dart:math';
+
+import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'package:zebra_app/Components/patientCard.dart';
 
@@ -17,6 +20,8 @@ class _LandingPageState extends State<LandingPage> {
   @override
   Widget build(BuildContext context) {
     final data = ModalRoute.of(context)!.settings.arguments as Map;
+    DatabaseReference _testRef = FirebaseDatabase.instance.reference().child("test");
+    _testRef.set("Working!!!! ${Random().nextInt(100)}");
 
     return Scaffold(
         endDrawer: Drawer(
