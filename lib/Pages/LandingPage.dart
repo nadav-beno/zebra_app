@@ -1,10 +1,8 @@
 import 'dart:math';
-
+import 'package:zebra_app/Services/CardPatientData.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'package:zebra_app/Components/patientCard.dart';
-import 'package:zebra_app/Services/JsonStream.dart';
-import 'package:zebra_app/Services/Order.dart';
 
 class LandingPage extends StatefulWidget {
   const LandingPage({Key? key}) : super(key: key);
@@ -25,7 +23,7 @@ class _LandingPageState extends State<LandingPage> {
     DatabaseReference _testRef = FirebaseDatabase.instance.reference().child("test");
     _testRef.set("Working!!!! ${Random().nextInt(100)}");
     final _database = FirebaseDatabase.instance.reference();
-
+    int index = 0;
     return Scaffold(
         endDrawer: Drawer(
             child: Container(
@@ -116,26 +114,65 @@ class _LandingPageState extends State<LandingPage> {
                       data['DOB'], data['Acc']),
                   patientCardTemplate(context, data['Patient name'], data['Gender'],
                       data['DOB'], data['Acc']),
+                  patientCardTemplate(context, data['Patient name'], data['Gender'],
+                      data['DOB'], data['Acc']),
+                  patientCardTemplate(context, data['Patient name'], data['Gender'],
+                      data['DOB'], data['Acc']),
+
+                  StreamBuilder(
+                    stream: _database
+                        .child('data/studies/studyArray/$index/patient')
+                        .onValue,
+                    builder: (context, snapshot) {
+                      if (snapshot.hasData) {
+                        final datacard =
+                        CardPatientData.fromRTDB(Map<String, dynamic>.from(
+                          (snapshot.data! as Event).snapshot.value,
+                        ));
+                        return Column(
+                          children: [
+                            Text(
+                              'My list:',
+                              style: TextStyle(
+                                  color: Color(0xff909699),
+                                  fontStyle: FontStyle.italic,
+                                  decoration: TextDecoration.underline),
+                            ),
+                            patientCardTemplate(context, datacard.firstName, datacard.firstName,
+                                datacard.firstName, datacard.firstName),
+                          ],
+                        );
+                      } else {
+                        return CircularProgressIndicator();
+                      }
+                    },
+                  ),
                   //patientCardTemplate(),
                   //patientCardTemplate()
-                  StreamBuilder(
-                      stream: JsonStream.getOrderStream(),
-                      builder: (context, snapshot){
-                        final tilesList = <ListTile>[];
-                        if (snapshot.hasData){
-                          final myOrders = snapshot.data as List<Order>;
-                          tilesList.addAll(
-                            myOrders.map((nextOrder){
-                              return ListTile(
-                                title: Text(nextOrder.name),
-                              );
-                            })
-                          );
-                        }
-                        return ListTile(
-                          title: Text("as"),
-                        );
-                      } )
+                  // SizedBox(
+                  //   height: 200, // Some height
+                  //   //child: Column(...),
+                  // ),
+                  // StreamBuilder(
+                  //     stream: JsonStream().getPatientDataStream(),
+                  //     builder: (context, snapshot){
+                  //       final tilesList = <ListTile>[];
+                  //       if (snapshot.hasData){
+                  //         final myOrders = snapshot.data as List<CardPatientData>;
+                  //         tilesList.addAll(
+                  //           myOrders.map((nextOrder){
+                  //             return ListTile(
+                  //               title: Text(nextOrder.firstName),
+                  //             );
+                  //           })
+                  //         );
+                  //       }
+                  //       return Expanded(
+                  //         child: ListView(
+                  //           children: tilesList,
+                  //         ),
+                  //       );
+                  //     } )
                 ],
               ),
             ),

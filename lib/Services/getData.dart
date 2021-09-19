@@ -7,7 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:zebra_app/Services/Loading.dart';
 import 'package:zebra_app/Services/JsonStream.dart';
-import 'package:zebra_app/Services/Order.dart';
+import 'package:zebra_app/Services/CardPatientData.dart';
 
 
 class CardList{
@@ -55,7 +55,7 @@ class GetData {
 
       var jsonText = await rootBundle.loadString('assets/studies_data.json');
       data = json.decode(jsonText);
-      print(data);
+      //print(data);
 
       patientName = userName.first;
       doctorName = userName.elementAt(1);
