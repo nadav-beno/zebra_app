@@ -99,89 +99,7 @@ class _LandState extends State<Land> {
               mainAxisSize: MainAxisSize.min,
               //crossAxisAlignment: CrossAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                Column(
-
-                ),
-                StreamBuilder(
-                  stream: _database
-                      .child('data/studies/studyArray/0/patient')
-                      .onValue,
-                  builder: (context, snapshot) {
-                    if (snapshot.hasData) {
-                      final datacard =
-                          CardPatientData.fromRTDB(Map<String, dynamic>.from(
-                        (snapshot.data! as Event).snapshot.value,
-                      ));
-                      return Text(
-                        datacard.fancyPrintDataTest(),
-                        textAlign: TextAlign.center,
-                      );
-                    } else {
-                      return CircularProgressIndicator();
-                    }
-                  },
-                ),
-                SizedBox(
-                  height: 200,
-                ),
-                StreamBuilder(
-                  stream: _database
-                      .child('data/studies/studyArray/1/patient')
-                      .onValue,
-                  builder: (context, snapshot) {
-                    if (snapshot.hasData) {
-                      final datacard =
-                      CardPatientData.fromRTDB(Map<String, dynamic>.from(
-                        (snapshot.data! as Event).snapshot.value,
-                      ));
-                      return Text(
-                        datacard.fancyPrintDataTest(),
-                        textAlign: TextAlign.center,
-                      );
-                    } else {
-                      return CircularProgressIndicator();
-                    }
-                  },
-                ),
-                StreamBuilder(
-                  stream: JsonStream().getPatientDataStream(),
-                  builder: (context, snapshot) {
-                    final cardsDataList = <ListTile>[];
-                    if (snapshot.hasData) {
-                      final patientData =
-                          snapshot.data as List<CardPatientData>;
-                      cardsDataList.addAll(
-                        patientData.map((nextPatient) {
-                          return ListTile(
-                              leading: Icon(Icons.local_movies),
-                              title: Text(nextPatient.age));
-                        }),
-                      );
-                    } else {
-                      return CircularProgressIndicator();
-                    }
-                    return Column(
-                        mainAxisSize: MainAxisSize.min,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: <Widget>[
-                          Text(
-                            'My list:',
-                            style: TextStyle(
-                                color: Color(0xff909699),
-                                fontStyle: FontStyle.italic,
-                                decoration: TextDecoration.underline),
-                          ),
-                          SizedBox(
-                            height: 200, // constrain height
-                            child: ListView(
-                              children: cardsDataList,
-                            ),
-                          ),
-                        ]);
-                  },
-                ),
-              ],
+              children: fun(_database),
             ),
           ),
         ),
@@ -195,4 +113,30 @@ class _LandState extends State<Land> {
     zebdataStream.cancel();
     super.deactivate();
   }
+}
+
+fun(DatabaseReference _database) {
+  List<Widget> list = [];
+  for(int i = 0; i < 10; i++) {
+    list.add(StreamBuilder(
+      stream: _database
+          .child('data/studies/studyArray/$i/patient')
+          .onValue,
+      builder: (context, snapshot) {
+        if (snapshot.hasData) {
+          final datacard =
+          CardPatientData.fromRTDB(Map<String, dynamic>.from(
+            (snapshot.data! as Event).snapshot.value,
+          ));
+          return Text(
+            datacard.age,
+            textAlign: TextAlign.center,
+          );
+        } else {
+          return CircularProgressIndicator();
+        }
+      },
+    ));
+  }
+  return list;
 }

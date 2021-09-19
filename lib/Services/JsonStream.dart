@@ -1,6 +1,8 @@
+import 'dart:ffi';
 import 'dart:io';
 
 import 'package:firebase_database/firebase_database.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:zebra_app/Services/CardPatientData.dart';
 
 class JsonStream {
@@ -18,6 +20,7 @@ class JsonStream {
       });
     }
   }
+
 
   Stream<List<CardPatientData>> getPatientDataStream(){
     final JsonStream = _dataBase.child('data/studies/studyArray/$index/patient').onValue;
