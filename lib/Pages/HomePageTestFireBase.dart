@@ -3,6 +3,7 @@ import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'package:zebra_app/Services/JsonStream.dart';
 import 'package:zebra_app/Services/CardPatientData.dart';
+import 'package:zebra_app/Services/CardPatientData.dart';
 
 class Home extends StatelessWidget {
   const Home({Key? key}) : super(key: key);
@@ -84,10 +85,7 @@ class _LandState extends State<Land> {
 
   @override
   Widget build(BuildContext context) {
-    //final zebraData = _database.child(
-    //'zebramedical-36ef5-default-rtdb/data/studies/studyArray/zebramedical-36ef5-default-rtdb/data/studies/studyArray');
-    int index = 0;
-    return Scaffold(
+   return Scaffold(
       appBar: AppBar(
         title: Text("Title"),
       ),
@@ -97,7 +95,6 @@ class _LandState extends State<Land> {
             padding: const EdgeInsets.only(top: 8.0),
             child: Column(
               mainAxisSize: MainAxisSize.min,
-              //crossAxisAlignment: CrossAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: fun(_database),
             ),
@@ -115,19 +112,21 @@ class _LandState extends State<Land> {
   }
 }
 
+
 fun(DatabaseReference _database) {
   List<Widget> list = [];
-  for(int i = 0; i < 10; i++) {
-    list.add(StreamBuilder(
+
+  int i = 0;
+  while(i < 20) {
+    Widget stream = StreamBuilder(
       stream: _database
-          .child('data/studies/studyArray/$i/patient')
+          .child('data/studies/studyArray/${i++}/patient')
           .onValue,
       builder: (context, snapshot) {
-        if (snapshot.hasData) {
-          final datacard =
-          CardPatientData.fromRTDB(Map<String, dynamic>.from(
-            (snapshot.data! as Event).snapshot.value,
-          ));
+        if (snapshot.hasData
+        && (snapshot.data! as Event).snapshot.value != null) {
+          final datacard = CardPatientData.fromRTDB(Map<String, dynamic>.from(
+            (snapshot.data! as Event).snapshot.value));
           return Text(
             datacard.age,
             textAlign: TextAlign.center,
@@ -136,7 +135,8 @@ fun(DatabaseReference _database) {
           return CircularProgressIndicator();
         }
       },
-    ));
+    );
+    list.add(stream);
   }
   return list;
 }
