@@ -56,7 +56,7 @@ class GetData {
               && (snapshot.data! as Event).snapshot.value != null) {
             final dataCard = CardPatientData.fromRTDB(Map<String, dynamic>.from(
                 (snapshot.data! as Event).snapshot.value));
-            return patientCardTemplate(context, dataCard.gender, dataCard.age, dataCard.gender, dataCard.age);
+            return patientCardTemplate(context, dataCard.gender, dataCard.age, dataCard.id, dataCard.age);
           } else {
             return CircularProgressIndicator();
           }
