@@ -22,7 +22,7 @@ class CardPatientData{
     );
   }
 
-  String fancyPrintDataTest(){
+  String PrintDataTest(){
     return 'Data by order: $age, $birthDate, $firstName, $gender, $id, $lastName';
   }
 

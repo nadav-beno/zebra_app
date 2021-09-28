@@ -7,7 +7,7 @@ import 'package:zebra_app/pages/Setting.dart';
 import 'package:zebra_app/Services/Loading.dart';
 import 'package:zebra_app/Components/WebViewer.dart';
 import 'package:zebra_app/Services/getData.dart';
-import 'package:zebra_app/Pages/HomePageTestFireBase.dart';
+import 'package:zebra_app/Pages/HomePage.dart';
 
 import 'Components/WebViewer.dart';
 
@@ -23,7 +23,7 @@ void main() {
       '/library': (context) => MyLibrary(),
       '/setting': (context) => Setting(),
       '/profile': (context) => Profile(),
-      '/webView': (context) => WebViewer(),
+      '/WebViewer': (context) => WebViewer(),
     },
   ));
 }

@@ -13,7 +13,7 @@ Widget patientCardTemplate(BuildContext context,
             RoundedRectangleBorder(borderRadius: BorderRadius.circular(12.0)),
         child: InkWell(
           onTap: () {
-            Navigator.pushNamed(context, '/webview');
+            Navigator.pushNamed(context, '/WebViewer');
           },
           child: SingleChildScrollView(
             child: Column(

@@ -15,7 +15,7 @@ class JsonStream {
           snapshot) {
         final data = new Map<String, dynamic>.from(snapshot.value);
         final cardPatientData = CardPatientData.fromRTDB(data);
-        cardPatientData.fancyPrintDataTest();
+        cardPatientData.PrintDataTest();
         index++;
       });
     }

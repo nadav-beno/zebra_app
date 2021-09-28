@@ -16,26 +16,26 @@ class Loading extends StatefulWidget {
 class _LoadingState extends State<Loading> {
   //String doctorName = 'Loading...';
 
-  Future<void> setDicomData() async {
-    GetData instance = GetData(
-        patientName: 'x',
-        doctorName: 'x',
-        dateOfBirth: 'x',
-        url: 'http/dicom',
-        gender: 'x',
-        Acc: 'x',
-        data: {});
-    await instance.getDicomData();
-    //print(instance.doctorName);
-
-    Navigator.pushReplacementNamed(context, '/home', arguments: {
-      'Doctor name': instance.doctorName,
-      'Patient name': instance.patientName,
-      'DOB': instance.dateOfBirth,
-      'Gender': instance.gender,
-      'Acc': instance.Acc
-    });
-  }
+  // Future<void> setDicomData() async {
+  //   GetData instance = GetData(
+  //       patientName: 'x',
+  //       doctorName: 'x',
+  //       dateOfBirth: 'x',
+  //       url: 'http/dicom',
+  //       gender: 'x',
+  //       Acc: 'x',
+  //       data: {});
+  //   await instance.getDicomData();
+  //   //print(instance.doctorName);
+  //
+  //   Navigator.pushReplacementNamed(context, '/home', arguments: {
+  //     'Doctor name': instance.doctorName,
+  //     'Patient name': instance.patientName,
+  //     'DOB': instance.dateOfBirth,
+  //     'Gender': instance.gender,
+  //     'Acc': instance.Acc
+  //   });
+  // }
 
   // List data = [];
   //
@@ -53,7 +53,7 @@ class _LoadingState extends State<Loading> {
   @override
   void initState() {
     super.initState();
-    this.setDicomData();
+    //this.setDicomData();
   }
 
   @override

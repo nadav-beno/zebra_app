@@ -24,8 +24,6 @@ class _WebViewerState extends State<WebViewer> {
     if (Platform.isAndroid) WebView.platform = SurfaceAndroidWebView();
   }
 
-
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
