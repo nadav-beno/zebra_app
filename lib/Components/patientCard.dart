@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 Widget patientCardTemplate(BuildContext context,
-    String doctorName, String gender, String dob, String acc) {
+    String doctorName, String gender, String dob, String age) {
   return Center(
     child: Padding(
       padding: const EdgeInsets.all(10.0),
@@ -52,7 +52,7 @@ Widget patientCardTemplate(BuildContext context,
                               color: Color(0xff909699),
                               fontStyle: FontStyle.italic)),
                       SizedBox(width: 10),
-                      Text('Acc#: $acc',
+                      Text('Age: $age',
                           style: TextStyle(
                               color: Color(0xff909699),
                               fontStyle: FontStyle.italic)),

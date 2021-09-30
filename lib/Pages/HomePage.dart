@@ -115,7 +115,7 @@ class _LandState extends State<Land> {
             child: Column(
               mainAxisSize: MainAxisSize.min,
               crossAxisAlignment: CrossAxisAlignment.center,
-              children: GetData().fun(_database),
+              children: GetData().patientData(_database),
             ),
           ),
         ),
